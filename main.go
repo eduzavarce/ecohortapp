@@ -14,6 +14,7 @@ type Config struct {
 	App fyne.App //Almacenaremos la GUI de fyne
 	InfoLog *log.Logger //Log de Acciones del usuario
 	ErrorLog *log.Logger //Log de Errores
+	MainWindow fyne.Window //
 }
 
 var myApp Config 
@@ -31,8 +32,12 @@ func main () {
 	// Crearemos un repositorio de base de datos
 
 	//Crearemos y definiremos el tamaño de la pantalla de la aplicación
-	win := fyneApp.NewWindow("Eco Hort App")
-	win.ShowAndRun()
-	//Mostraremos y ejecutaremos la app
+	myApp.MainWindow = fyneApp.NewWindow("Eco Hort App")
+	myApp.MainWindow.Resize(fyne.NewSize(800,500)) //tamaño ventana principal
+	myApp.MainWindow.SetFixedSize(true)
+	myApp.MainWindow.SetMaster() //Establecemos que es la ventana principal
 
+	
+	//Mostraremos y ejecutaremos la app
+	myApp.MainWindow.ShowAndRun()
 }
