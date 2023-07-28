@@ -37,6 +37,7 @@ func main () {
 	myApp.MainWindow.SetFixedSize(true)
 	myApp.MainWindow.SetMaster() //Establecemos que es la ventana principal
 
+	myApp.makeUI()
 	
 	//Mostraremos y ejecutaremos la app
 	myApp.MainWindow.ShowAndRun()
