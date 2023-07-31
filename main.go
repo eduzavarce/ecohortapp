@@ -2,6 +2,7 @@ package main
 
 import (
 	"log"
+	"net/http"
 	"os"
 
 	"fyne.io/fyne/v2"
@@ -14,7 +15,10 @@ type Config struct {
 	App fyne.App //Almacenaremos la GUI de fyne
 	InfoLog *log.Logger //Log de Acciones del usuario
 	ErrorLog *log.Logger //Log de Errores
-	MainWindow fyne.Window //
+	MainWindow fyne.Window //finestra principal
+	ClimaDadesContainer *fyne.Container // Contenidor del clima
+	HTTPClient http.Client
+	PronosticGraficContainer *fyne.Container
 }
 
 var myApp Config 
