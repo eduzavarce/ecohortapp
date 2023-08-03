@@ -4,7 +4,6 @@ import (
 	"time"
 
 	"fyne.io/fyne/v2"
-	"fyne.io/fyne/v2/canvas"
 	"fyne.io/fyne/v2/container"
 	"fyne.io/fyne/v2/theme"
 )
@@ -20,10 +19,11 @@ func (app *Config) makeUI() {
 	//barra de herramientas
 	toolBar := app.getToolBar(app.MainWindow)
 	pronosticTabContenidor := app.pronosticTab()
+	registresTabContenidor := app.registresTab()
 	// pestanyes de l'aplicacio
 	tabs := container.NewAppTabs(
 		container.NewTabItemWithIcon("Pronostic", theme.HomeIcon(),pronosticTabContenidor),
-		container.NewTabItemWithIcon("Diari Metorologic", theme.InfoIcon(),canvas.NewText("hjkaslhdkljasdfh", nil)),
+		container.NewTabItemWithIcon("Diari Metorologic", theme.InfoIcon(),registresTabContenidor),
 	)
 	tabs.SetTabLocation(container.TabLocationTop)
 	//Agregamos el contenedor a la ventana
@@ -49,6 +49,11 @@ func (app *Config) actualizarDatosClimaContenido(){
 	image2 := app.obtenirGrafic()
 	app.PronosticGraficContainer.Objects = []fyne.CanvasObject{image2}
 	app.PronosticGraficContainer.Refresh()
+}
+
+func (app *Config) actualitzarRegistresTable(){
+	app.Registres = app.getRegistresSlice()
+	app.RegistresTable.Refresh()
 }
 
 /* api key aemet

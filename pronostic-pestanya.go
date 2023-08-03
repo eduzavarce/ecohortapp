@@ -35,7 +35,7 @@ var image *canvas.Image
 		image =canvas.NewImageFromFile("pronostic.png")
 	}
 	image.SetMinSize(fyne.Size{
-		Width: 770,
+		Width: 800,
 		Height: 480,
 	})
 
